@@ -2,6 +2,9 @@ module Nat where
 
 import Prelude hiding (Enum(..), sum)
 
+-- Sean Cramsey
+-- Wavelet Wang
+
 
 --
 -- * Part 2: Natural numbers
