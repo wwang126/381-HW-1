@@ -87,7 +87,10 @@ toInt (nat) = 1 + toInt(pred nat)
 --   >>> add two three == add three two
 --   True
 --
-add = undefined
+add :: Nat -> Nat -> Nat
+add Zero i = i
+add i Zero = i
+add (Succ a) (Succ b) = add a (Succ (Succ b))
 
 
 -- | Subtract the second natural number from the first. Return zero
