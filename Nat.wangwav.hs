@@ -43,7 +43,7 @@ four = Succ three
 pred :: Nat -> Nat
 --Define base case
 pred Zero = Zero
---Otherwise return the parent value 
+--Otherwise return the parent value
 pred (Succ nat) = nat
 
 
@@ -55,7 +55,9 @@ pred (Succ nat) = nat
 --   >>> isZero two
 --   False
 --
-isZero = undefined
+isZero :: Nat -> Bool
+isZero Zero  = True
+isZero (nat) = False
 
 
 -- | Convert a natural number to an integer.
