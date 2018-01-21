@@ -145,6 +145,7 @@ gt = undefined
 mult :: Nat->Nat->Nat
 mult Zero i = Zero
 mult i Zero = Zero
+mult Zero Zero = Zero
 mult (Succ a) b = add b (mult a b)
 
 
