@@ -160,7 +160,8 @@ mult (Succ a) b = add b (mult a b)
 --   >>> toInt (sum [one,two,three])
 --   6
 --
-sum = undefined
+sum :: [Nat] -> Nat
+sum = foldl add Zero
 
 
 -- | An infinite list of all of the *odd* natural numbers, in order.
