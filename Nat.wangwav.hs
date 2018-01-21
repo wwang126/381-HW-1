@@ -172,4 +172,5 @@ sum = foldl add Zero
 --   >>> toInt (sum (take 100 odds))
 --   10000
 --
-odds = undefined
+odds :: [Nat]
+odds = one : map (add two) odds
