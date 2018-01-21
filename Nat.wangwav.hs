@@ -68,7 +68,9 @@ isZero (nat) = False
 --   >>> toInt three
 --   3
 --
-toInt = undefined
+toInt :: Nat -> Int
+toInt Zero = 0
+toInt (nat) = 1 + toInt(pred nat)
 
 
 -- | Add two natural numbers.
