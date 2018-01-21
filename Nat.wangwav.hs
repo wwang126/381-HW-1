@@ -40,7 +40,11 @@ four = Succ three
 --   >>> pred three
 --   Succ (Succ Zero)
 --
-pred = undefined
+pred :: Nat -> Nat
+--Define base case
+pred Zero = Zero
+--Otherwise return the parent value
+pred (Succ nat) = nat
 
 
 -- | True if the given value is zero.
@@ -51,7 +55,9 @@ pred = undefined
 --   >>> isZero two
 --   False
 --
-isZero = undefined
+isZero :: Nat -> Bool
+isZero Zero  = True
+isZero (nat) = False
 
 
 -- | Convert a natural number to an integer.
@@ -62,7 +68,9 @@ isZero = undefined
 --   >>> toInt three
 --   3
 --
-toInt = undefined
+toInt :: Nat -> Int
+toInt Zero = 0
+toInt (nat) = 1 + toInt(pred nat)
 
 
 -- | Add two natural numbers.
