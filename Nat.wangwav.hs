@@ -40,7 +40,11 @@ four = Succ three
 --   >>> pred three
 --   Succ (Succ Zero)
 --
-pred = undefined
+pred :: Nat -> Nat
+--Define base case
+pred Zero = Zero
+--Otherwise return the parent value 
+pred (Succ nat) = nat
 
 
 -- | True if the given value is zero.
