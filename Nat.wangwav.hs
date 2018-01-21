@@ -108,7 +108,10 @@ add (Succ a) (Succ b) = add a (Succ (Succ b))
 --   >>> sub one three
 --   Zero
 --
-sub = undefined
+sub :: Nat -> Nat -> Nat
+sub Zero i = i
+sub i Zero = i
+sub (Succ a) (Succ b) = sub a (pred (pred b))
 
 
 -- | Is the left value greater than the right?
