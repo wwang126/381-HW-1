@@ -1,10 +1,9 @@
+--Sean Cramsey - cramseys
+--Wavelet Wang - wangwav
+
 module Nat where
 
 import Prelude hiding (Enum(..), sum)
-
--- Sean Cramsey
--- Wavelet Wang
-
 
 --
 -- * Part 2: Natural numbers
@@ -125,6 +124,7 @@ sub (Succ a) (Succ b) = sub a (pred (pred b))
 --   >>> gt two two
 --   False
 --
+
 gt :: Nat -> Nat -> Bool
 gt a b = (sub b a) == Zero
 

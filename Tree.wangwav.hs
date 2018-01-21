@@ -1,8 +1,7 @@
+--Sean Cramsey - cramseys
+--Wavelet Wang - wangwav
+
 module Tree where
-
-
---Sean Cramsey
---Wavelet Wang
 
 --
 -- * Part 1: Binary trees
