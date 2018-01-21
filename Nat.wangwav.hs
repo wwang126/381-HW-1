@@ -139,7 +139,11 @@ gt = undefined
 --   >>> toInt (mult three three)
 --   9
 --
-mult = undefined
+mult :: Nat->Nat->Nat
+mult Zero i = Zero
+mult i Zero = Zero
+mult (Succ a) b = add b (mult a b)
+
 
 
 -- | Compute the sum of a list of natural numbers.
