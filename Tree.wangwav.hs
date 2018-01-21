@@ -1,6 +1,5 @@
 module Tree where
 
-
 --
 -- * Part 1: Binary trees
 --
@@ -22,6 +21,10 @@ t2 :: Tree
 t2 = Node 6 (Node 2 (Leaf 1) (Node 4 (Leaf 3) (Leaf 5)))
             (Node 8 (Leaf 7) (Leaf 9))
 
+--helper function to access values in node&leaf
+value :: Tree -> Int
+value (Leaf i) = i
+value (Node n l r) = n
 
 -- | The integer at the left-most node of a binary tree.
 --
@@ -58,6 +61,7 @@ leftmost (Node _ l _) = leftmost l
 --
 rightmost :: Tree -> Int
 rightmost (Leaf i)     = i
+--trace down the right side of the tree
 rightmost (Node _ _ r) = rightmost r
 
 
@@ -124,7 +128,6 @@ sumInts (Leaf i) = i
 sumInts (Node n l r) = n + (sumInts (l)) + (sumInts (r))
 
 
-
 -- | The list of integers encountered by a pre-order traversal of the tree.
 --
 --   >>> preorder (Leaf 3)
@@ -141,7 +144,7 @@ sumInts (Node n l r) = n + (sumInts (l)) + (sumInts (r))
 --
 preorder :: Tree -> [Int]
 preorder (Leaf i) = [i]
-
+preorder (Node n l r) = n : preorder(l) ++ preorder(r)
 
 
 -- | The list of integers encountered by an in-order traversal of the tree.
@@ -158,7 +161,9 @@ preorder (Leaf i) = [i]
 --   >>> inorder t2
 --   [1,2,3,4,5,6,7,8,9]
 --
-inorder = undefined
+inorder :: Tree -> [Int]
+inorder (Leaf i) = [i]
+inorder (Node n l r) = inorder(l) ++ [n] ++ inorder(r)
 
 
 -- | Check whether a binary tree is a binary search tree.
@@ -175,7 +180,9 @@ inorder = undefined
 --   >>> isBST t2
 --   True
 --
-isBST = undefined
+isBST :: Tree -> Bool
+isBST (Leaf i) = True
+isBST (Node n l r) = (n >= value(l)) && (n <= value(r)) && isBST (l) && isBST(r)
 
 
 -- | Check whether a number is contained in a binary search tree.
@@ -193,4 +200,10 @@ isBST = undefined
 --   >>> inBST 10 t2
 --   False
 --
-inBST = undefined
+
+inBST :: Int -> Tree -> Bool
+inBST k (Leaf i) = i == k
+inBST k (Node n l r)
+  | n == k = True
+  | n > k = inBST k l
+  | n < k = inBST k r
