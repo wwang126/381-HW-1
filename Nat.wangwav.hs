@@ -125,7 +125,8 @@ sub (Succ a) (Succ b) = sub a (pred (pred b))
 --   >>> gt two two
 --   False
 --
-gt = undefined
+gt :: Nat -> Nat -> Bool
+gt a b = (sub b a) == Zero
 
 
 -- | Multiply two natural numbers.
